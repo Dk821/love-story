@@ -102,8 +102,10 @@
 
   .testimonials { --w: min(86vw, 24rem); }
   .testimonials__stage { height: 25rem; }
-  .testimonials__arrow--prev { left: calc(50% - var(--w) / 2 + 0.2rem); }
-  .testimonials__arrow--next { right: calc(50% - var(--w) / 2 + 0.2rem); }
+  /* The arrows move down beside the dots, so they never cover the quote */
+  .testimonials__arrow { top: auto; bottom: -3.1rem; width: 2.4rem; font-size: 0.95rem; }
+  .testimonials__arrow--prev { left: calc(50% - 6.8rem); }
+  .testimonials__arrow--next { right: calc(50% - 6.8rem); }
 }
 
 /* ---------- up to 640px wide ---------- */
