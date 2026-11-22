@@ -4,6 +4,7 @@ import { MotionConfig } from 'framer-motion'
 // Poppins is loaded from src/assets/fonts (see the @font-face rules in global.css)
 import './styles/global.css'
 import './styles/sections.css'
+import './styles/mobile.css'
 import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

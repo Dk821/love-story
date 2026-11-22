@@ -1,0 +1,145 @@
+/* =====================  MOBILE & TABLET VIEW  =====================
+   Every rule that applies on narrower screens lives here, grouped by screen width, widest first.
+   This file loads after global.css and sections.css (see main.tsx), so these rules take over below each breakpoint.
+   The desktop styles stay in sections.css. */
+
+/* ---------- up to 1180px wide ---------- */
+@media (max-width: 1180px) {
+  .about__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
+  .about__stats { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .about__stat { gap: 1rem; padding: 1.2rem; }
+  .about__icon { width: 3.6rem; height: 3.6rem; font-size: 1.7rem; }
+}
+
+/* ---------- up to 1100px wide ---------- */
+@media (max-width: 1100px) {
+  .services__layout { grid-template-columns: 1fr; align-items: start; }
+  .services__title { font-size: clamp(2rem, 5.6vw, 3rem); }
+  .services__line { display: inline; }
+  .services__line > * { display: inline; }
+  .services__line::after { content: ' '; }
+  .services__text { max-width: 32rem; }
+}
+
+/* ---------- up to 1060px wide ---------- */
+@media (max-width: 1060px) {
+ .nav__sub { display: none; } 
+}
+
+/* ---------- up to 900px wide ---------- */
+@media (max-width: 900px) {
+  .nav { grid-template-columns: 1fr auto; }
+  .nav__links, .nav__sub { display: none; }
+  .nav__burger { display: block; }
+
+  .statement__body { grid-template-columns: 1fr; gap: 3rem; }
+  .statement__fig--main { width: 84%; }
+  .statement__fig--inset { width: 50%; }
+  .statement__chip { left: 0.4rem; bottom: 0.4rem; padding: 0.35rem 0.55rem; font-size: 0.56rem; }
+
+  .story-row { grid-template-columns: 2.2rem 1fr; }
+  .story-row__thumb { display: block; grid-column: 1 / -1; aspect-ratio: 16 / 9; overflow: hidden; margin-bottom: 0.7rem; }
+  .story-row__cta { display: none; }
+  .stories__list li .story-row__couple { opacity: 1; }
+  .stories__wash { display: none; }
+
+  .experience { grid-template-columns: 1fr; }
+  .experience__left { position: static; }
+  /* One column: the photograph sits faintly behind everything, feathered top and bottom only */
+  .experience__bg {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
+  }
+  .experience__bgin { opacity: 0.45; }
+
+ .contact { grid-template-columns: 1fr; align-items: start; } 
+
+  .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer__brand { grid-column: 1 / -1; }
+
+  .about__grid { grid-template-columns: 1fr; }
+  .about__visual { max-width: 26rem; margin: 0 auto; }
+  .about__stats { grid-template-columns: 1fr; }
+
+  .yt__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- up to 860px wide ---------- */
+@media (max-width: 860px) {
+ .services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+}
+
+/* ---------- up to 760px wide ---------- */
+@media (max-width: 760px) {
+  .hero { padding-top: 4.75rem; }
+  .hero__intro { display: none; }
+  .hero__name { font-size: clamp(2.6rem, 15vw, 4.6rem); bottom: 3.2rem; }
+  .hero__name--r { bottom: calc(2.5rem + 0.2em); }
+  .hero__who { display: none; }
+  /* On a tall phone screen, keep both faces in view */
+  .hero__slide .photo img { object-position: 38% 50%; }
+
+ .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 2.2rem 1.4rem; } 
+
+ .latest__head { flex-direction: column; align-items: flex-start; } 
+
+  .viewer__cols { grid-template-columns: 1fr; }
+  .viewer__grid { columns: 2 140px; column-gap: 0.6rem; }
+  .viewer__frame { margin-bottom: 0.6rem; }
+
+  .hero__plate .photo img[src*="veil-forehead"] { object-position: 52% 40%; }
+  .hero__plate .photo img[src*="forest-kiss"] { object-position: 40% 40%; }
+  .hero__plate .photo img[src*="pillar-couple"] { object-position: 66% 40%; }
+  .hero__plate .photo img[src*="tuxedo-saree"] { object-position: 31% 40%; }
+  .hero__plate .photo img[src*="leaf-embrace"] { object-position: 50% 40%; }
+  .hero__plate .photo img[src*="leaf-portrait"] { object-position: 60% 40%; }
+}
+
+/* ---------- up to 700px wide ---------- */
+@media (max-width: 700px) {
+ .testimonials__floral { opacity: 0.32; } 
+
+  .testimonials { --w: min(86vw, 24rem); }
+  .testimonials__stage { height: 25rem; }
+  .testimonials__arrow--prev { left: calc(50% - var(--w) / 2 + 0.2rem); }
+  .testimonials__arrow--next { right: calc(50% - var(--w) / 2 + 0.2rem); }
+}
+
+/* ---------- up to 640px wide ---------- */
+@media (max-width: 640px) {
+  .yt__head { flex-direction: column; align-items: flex-start; }
+
+  .work__head { flex-direction: column; align-items: flex-start; }
+  .work__tag { display: none; }
+}
+
+/* ---------- up to 560px wide ---------- */
+@media (max-width: 560px) {
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.8rem; }
+  .footer__grid > .footer__col:last-child { grid-column: 1 / -1; }
+  .footer__base { flex-direction: column; align-items: flex-start; }
+
+  /* Two videos side by side: everything on the card shrinks to fit */
+  .yt__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+  .yt__media { border-radius: 0.8rem; }
+  .yt__play { left: 0.5rem; top: 0.5rem; width: 1.8rem; font-size: 0.7rem; }
+  .yt__name { left: 0.55rem; right: 0.45rem; bottom: 0.5rem; font-size: 0.74rem; line-height: 1.2; }
+  .yt__channel { display: none; }
+
+  .faq__q { padding: 0.75rem 0.75rem 0.75rem 1.2rem; }
+  .faq__a p { padding: 0 1.2rem 1.15rem; }
+  .faq__icon { width: 2rem; }
+}
+
+/* ---------- up to 520px wide ---------- */
+@media (max-width: 520px) {
+  /* Two service cards side by side */
+  .services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+  .service a { aspect-ratio: 0.95 / 1; border-radius: 1rem; }
+  .service__meta { right: 2.2rem; padding: 0.7rem 0 0.75rem 0.7rem; }
+  .service__icon { width: 1.9rem; margin-bottom: 0.4rem; font-size: 0.85rem; }
+  .service__title { font-size: 0.8rem; }
+  .service__tagline { display: none; }
+  .service__go { right: 0.55rem; bottom: 0.7rem; width: 1.6rem; font-size: 0.7rem; border-width: 1px; }
+}
