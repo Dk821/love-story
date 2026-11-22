@@ -1,0 +1,362 @@
+/* ============================================================
+   LOVE STORY PHOTOGRAPHY — design tokens
+   Palette : warm near-black, oyster (pink undertone), garnet
+   Type    : Poppins everywhere — light for display, regular for text,
+             medium for labels. Font files live in src/assets/fonts.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/fonts/poppins-latin-300-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/poppins-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/poppins-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/poppins-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/fonts/poppins-latin-300-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/poppins-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root {
+  /* --- surface --- */
+  --ink: #0c0a09;
+  --ink-2: #141110;
+  --deep: #060505;
+  --paper: #eadfd4;
+  --paper-2: #ded0c2;
+  --paper-ink: #1a1411;
+
+  /* --- accent: gold, used across the whole site.
+         --garnet / --garnet-lift are the names the components already use, now holding gold:
+         --garnet = fills, rules and dots · --garnet-lift = small text on dark.
+         --gold-ink = gold for text and fills on light backgrounds. --- */
+  --gold: #c9a463;
+  --gold-bright: #e6c88a;
+  --gold-ink: #a9701f;
+  --garnet: #c9a463;
+  --garnet-lift: #e6c88a;
+
+  /* --- type --- */
+  --display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display-weight: 300;
+
+  --fs-hero: clamp(3.6rem, 12.5vw, 13rem);
+  --fs-display: clamp(2.4rem, 5.6vw, 5.2rem);
+  --fs-statement: clamp(1.9rem, 4.6vw, 4.2rem);
+  --fs-label: 0.75rem;
+
+  /* --- rhythm --- */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-curtain: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* framer-motion measures scroll offsets against the page; it wants a positioned scroll container */
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* The page still scrolls (wheel, touch, keys); only the bar itself is hidden */
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 1rem;
+  /* Display type picks its optical size from its rendered size */
+  font-optical-sizing: auto;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, figure, blockquote, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+::selection { background: var(--garnet); color: #1a1208; }
+
+:focus-visible {
+  outline: 2px solid var(--garnet-lift);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Dialogs take focus programmatically; the dialog itself needs no ring */
+[role='dialog']:focus { outline: none; }
+
+/* Anchored sections clear the fixed header */
+[id] { scroll-margin-top: 5rem; }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  z-index: 300;
+}
+.skip:focus {
+  left: var(--gutter);
+  top: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ---------- Lenis ---------- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ---------- Themes ---------- */
+.theme-dark {
+  --fg: var(--paper);
+  --bg: var(--ink);
+  --line: rgba(201, 164, 99, 0.22);
+  --muted: rgba(234, 223, 212, 0.58);
+  --accent-text: var(--garnet-lift);
+  background: var(--ink);
+  color: var(--fg);
+}
+.theme-deep {
+  --fg: var(--paper);
+  --bg: var(--deep);
+  --line: rgba(201, 164, 99, 0.22);
+  --muted: rgba(234, 223, 212, 0.58);
+  --accent-text: var(--garnet-lift);
+  background: var(--deep);
+  color: var(--fg);
+}
+.theme-light {
+  --fg: var(--paper-ink);
+  --bg: var(--paper);
+  --line: rgba(26, 20, 17, 0.18);
+  --muted: rgba(26, 20, 17, 0.7);
+  --accent-text: var(--gold-ink);
+  background: var(--paper);
+  color: var(--fg);
+}
+
+/* Dark and light sections meet through a soft band, not a hard cut */
+.theme-light::before,
+.theme-light::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(3rem, 7vw, 6rem);
+  pointer-events: none;
+  z-index: 0;
+}
+.theme-light::before { top: 0; background: linear-gradient(to bottom, var(--ink), transparent); }
+.theme-light::after { bottom: 0; background: linear-gradient(to top, var(--ink), transparent); }
+
+/* ---------- Type roles ---------- */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: var(--display-weight);
+  font-size: var(--fs-display);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+em { font-family: var(--display); font-weight: var(--display-weight); font-style: italic; }
+
+/* Word reveal. Padding keeps descenders inside the box; the negative
+   margin is deliberately smaller, so nothing can clip them. */
+.split__mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0.02em 0.07em 0.2em;
+  margin: 0 -0.07em -0.14em;
+}
+.split__word { display: inline-block; } /* will-change is set only while a word is moving */
+.split__word.is-italic { font-style: italic; }
+
+.section { position: relative; padding: clamp(5rem, 11vw, 9.5rem) var(--gutter); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.95rem 1.7rem;
+  border: 1px solid rgba(201, 164, 99, 0.75);
+  border-radius: 999px;
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.12s ease-out;
+}
+.btn:active { transform: scale(0.97); }
+@media (hover: hover) { .btn:hover { background: var(--gold); color: #1a1208; border-color: var(--gold); } }
+.btn--small { padding: 0.68rem 1.2rem; }
+.btn--garnet { border-color: var(--garnet); }
+@media (hover: hover) { .btn--garnet:hover { background: var(--garnet); border-color: var(--garnet); color: #1a1208; } }
+.btn--garnet .dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--garnet);
+  box-shadow: 0 0 0 4px rgba(201, 164, 99, 0.22);
+  transition: background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+@media (hover: hover) { .btn--garnet:hover .dot { background: #1a1208; box-shadow: none; } }
+
+/* ---------- Photo (real image, or a plate placeholder) ---------- */
+.photo {
+  position: relative;
+  /* keeps the picture's own z-index inside the picture, so overlays placed over a photo always sit above it */
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 28%, var(--b) 0, transparent 48%),
+    radial-gradient(circle at 20% 80%, var(--a) 0, transparent 60%),
+    linear-gradient(158deg, var(--c), var(--a));
+}
+.photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 24% 30%, rgba(255, 255, 255, 0.26) 0 2.2%, transparent 2.8%),
+    radial-gradient(circle at 38% 18%, rgba(255, 255, 255, 0.16) 0 3.4%, transparent 4%),
+    radial-gradient(circle at 80% 64%, rgba(255, 255, 255, 0.18) 0 2.8%, transparent 3.4%),
+    radial-gradient(circle at 64% 84%, rgba(255, 255, 255, 0.12) 0 4.2%, transparent 4.8%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+.photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* A slot still borrowing the sample photo shows its own part of it */
+.photo.is-borrowed img {
+  object-position: var(--fx, 50%) var(--fy, 50%);
+  transform: scale(var(--zoom, 1));
+  transform-origin: var(--fx, 50%) var(--fy, 50%);
+}
+/* Once the real photo is in, the placeholder texture underneath is no longer drawn */
+.photo.is-loaded::before,
+.photo.is-loaded::after { display: none; }
+/* Shown only in `npm run dev`, so a missing file is obvious while you build */
+.photo__hint {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.65rem;
+  z-index: 2;
+  max-width: calc(100% - 1.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--sans);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Frosted surfaces become solid for people who ask for less transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .nav::before { background: var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; mask-image: none; -webkit-mask-image: none; }
+  .viewer__close { background: var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* More contrast: firmer text colours and defined edges */
+@media (prefers-contrast: more) {
+  .theme-dark, .theme-deep { --muted: rgba(234, 223, 212, 0.85); --line: rgba(234, 223, 212, 0.4); }
+  .theme-light { --muted: rgba(26, 20, 17, 0.88); --line: rgba(26, 20, 17, 0.5); }
+  .nav::before { background: var(--ink); mask-image: none; -webkit-mask-image: none; border-bottom: 1px solid rgba(234, 223, 212, 0.5); }
+  .viewer__close, .lightbox__bar button { border-color: var(--paper); }
+}
